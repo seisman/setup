@@ -7,10 +7,14 @@
 
 set -x -e
 
+# The Anaconda installer
 installer=Anaconda3-2020.11-MacOSX-x86_64.sh
+# Location to install anaconda
 installdir=${HOME}/.anaconda
+# the default shell
 shell=zsh
 
+# Download Anaconda installer
 wget -c https://repo.anaconda.com/archive/${installer} -O ${installer}
 
 # Install Anaconda
@@ -29,19 +33,6 @@ conda config --add channels conda-forge
 conda update --yes conda
 
 # Install packages
-cat > requirements.txt << EOF
-# developing tools
-pytest
-pytest-mpl
-pytest-cov
-# sphinx theme
-sphinx_rtd_theme
-# needed by pygmt
-netcdf4
-# seismology
-obspy
-EOF
 conda install --yes --file requirements.txt
-rm -f requirements.txt
 
 set +x +e
