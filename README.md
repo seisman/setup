@@ -6,4 +6,4 @@ This repository stores some setup scripts so that I can reinstall some tools
 in an easy way.
 
 - [setup-anaconda.sh](setup-anaconda.sh): Install Anaconda and Python packages
-  listed in the [`requirements.txt`] file.
+  listed in the [`requirements.txt`](requirements.txt) file.
