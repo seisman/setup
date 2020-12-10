@@ -1,15 +1,15 @@
 #!/usr/bin/env bash
 #
-# Install and setup anaconda
+# Install anaconda and Python packages
 #
 # Reference: https://docs.anaconda.com/anaconda/install/silent-mode/
 #
 
 set -x -e
 
-# The Anaconda installer
+# the Anaconda installer
 installer=Anaconda3-2020.11-MacOSX-x86_64.sh
-# Location to install anaconda
+# location to install anaconda
 installdir=${HOME}/.anaconda
 # the default shell
 shell=zsh
