@@ -1,6 +1,7 @@
 # List of Python packages used in my daily research
 black
 blackdoc
+codespell
 netcdf4
 obspy
 pytest
