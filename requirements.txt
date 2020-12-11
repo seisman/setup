@@ -1,11 +1,10 @@
 # List of Python packages used in my daily research
-# developing tools
-pytest
-pytest-mpl
-pytest-cov
-# sphinx theme
-sphinx_rtd_theme
-# needed by pygmt
+black
+blackdoc
 netcdf4
-# seismology
 obspy
+pytest
+pytest-cov
+pytest-mpl
+sphinx_rtd_theme
+xarray
