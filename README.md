@@ -7,3 +7,5 @@ in an easy way.
 
 - [setup-anaconda.sh](setup-anaconda.sh): Install Anaconda and Python packages
   listed in the [`requirements.txt`](requirements.txt) file.
+- [setup-miniconda.sh](setup-miniconda.sh): Install miniconda and Python packages
+  listed in the [`requirements.txt`](requirements.txt) file.
