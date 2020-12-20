@@ -2,10 +2,16 @@
 black
 blackdoc
 codespell
+ipython
+isort
+jupyter
+jupyterlab
 netcdf4
 obspy
+pylint
 pytest
 pytest-cov
 pytest-mpl
+scikit-learn
 sphinx_rtd_theme
 xarray
