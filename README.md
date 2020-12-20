@@ -9,3 +9,5 @@ in an easy way.
   listed in the [`requirements.txt`](requirements.txt) file.
 - [setup-miniconda.sh](setup-miniconda.sh): Install miniconda and Python packages
   listed in the [`requirements.txt`](requirements.txt) file.
+- [setup-tinytex.sh](setup-tinytex.sh): Install [TinyTeX](https://yihui.org/tinytex/)
+  and LaTeX packages
