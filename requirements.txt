@@ -2,6 +2,7 @@
 black
 blackdoc
 codespell
+flake8
 ipython
 isort
 jupyter
