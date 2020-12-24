@@ -8,14 +8,14 @@
 curl -sL "https://yihui.org/tinytex/install-bin-unix.sh" | sh
 tlmgr install \
 	anyfontsize \
+	ctex \
 	datetime \
-	geometry \
 	enumitem \
-	xcolor \
-	fancyhdr \
-	hyperref \
 	etaremune \
+	fancyhdr \
 	fmtcount \
+	geometry \
+	hyperref \
 	sourcesanspro \
 	sourcecodepro \
-	ctex
+	xcolor
