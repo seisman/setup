@@ -12,6 +12,7 @@ tlmgr install \
 	datetime \
 	enumitem \
 	etaremune \
+	everysel \
 	fancyhdr \
 	fmtcount \
 	geometry \
