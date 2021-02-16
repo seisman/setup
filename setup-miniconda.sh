@@ -5,8 +5,6 @@
 # Reference: https://docs.anaconda.com/anaconda/install/silent-mode/
 #
 
-set -x -e
-
 # the miniconda installer
 installer=Miniconda3-latest-MacOSX-x86_64.sh
 # location to install miniconda
@@ -34,5 +32,3 @@ conda update --yes conda
 
 # Install packages
 conda install --yes --file requirements.txt
-
-set +x +e
