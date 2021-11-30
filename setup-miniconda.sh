@@ -4,16 +4,24 @@
 #
 # Reference: https://docs.anaconda.com/anaconda/install/silent-mode/
 #
-
-# the miniconda installer
-installer=Miniconda3-latest-MacOSX-x86_64.sh
 # location to install miniconda
-installdir=${HOME}/.miniconda
-# the default shell
+installdir=${HOME}/opt/miniconda
+# mirror to download miniconda
+# MIRROR=https://repo.anaconda.com/miniconda/
+MIRROR=https://mirrors.tuna.tsinghua.edu.cn/anaconda/miniconda/
+# the default shell (zsh, bash or csh)
 shell=zsh
 
+# the miniconda installer
+if [[ $(uname) == "Linux" ]]; then
+	installer=Miniconda3-latest-Linux-x86_64.sh
+elif [[ $(uname) == "Darwin" ]]; then
+	installer=Miniconda3-latest-MacOSX-x86_64.sh
+fi
+echo ${installer}
+
 # Download miniconda installer
-wget -c https://repo.anaconda.com/miniconda/${installer} -O ${installer}
+wget -c ${MIRROR}/${installer} -O ${installer}
 
 # Install miniconda
 bash ${installer} -b -p ${installdir}
@@ -21,14 +29,14 @@ bash ${installer} -b -p ${installdir}
 # Activate conda in current shell
 eval "$(${installdir}/bin/conda shell.${shell} hook)"
 
-# Init
-conda init ${shell}
+# Initialize conda (run this if this is the first time you install miniconda)
+# conda init ${shell}
 
 # Add conda-forge channel
 conda config --add channels conda-forge
 
-# Update conda
-conda update --yes conda
+# Install mamba
+conda install --yes 'mamba>=0.16'
 
-# Install packages
-conda install --yes --file requirements.txt
+# Install some commonly used packages
+mamba install --yes ipython jupyter matplotlib numpy obspy pandas scipy sphinx xarray
