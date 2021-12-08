@@ -7,10 +7,10 @@
 # location to install miniconda
 installdir=${HOME}/opt/miniconda
 # mirror to download miniconda
-# MIRROR=https://repo.anaconda.com/miniconda/
-MIRROR=https://mirrors.tuna.tsinghua.edu.cn/anaconda/miniconda/
-# the default shell (zsh, bash or csh)
-shell=zsh
+# MIRROR=https://repo.anaconda.com/miniconda/  # official mirror
+MIRROR=https://mirrors.tuna.tsinghua.edu.cn/anaconda/miniconda/  # mirror in China
+# the shell name: zsh, bash or csh
+shell=$(basename ${SHELL})
 
 # the miniconda installer
 if [[ $(uname) == "Linux" ]]; then
@@ -18,7 +18,6 @@ if [[ $(uname) == "Linux" ]]; then
 elif [[ $(uname) == "Darwin" ]]; then
 	installer=Miniconda3-latest-MacOSX-x86_64.sh
 fi
-echo ${installer}
 
 # Download miniconda installer
 wget -c ${MIRROR}/${installer} -O ${installer}
@@ -30,13 +29,28 @@ bash ${installer} -b -p ${installdir}
 eval "$(${installdir}/bin/conda shell.${shell} hook)"
 
 # Initialize conda (run this if this is the first time you install miniconda)
-# conda init ${shell}
+conda init ${shell}
 
-# Add conda-forge channel
-conda config --add channels conda-forge
+# configure conda, changing the ~/.condarc file
+conda config --add channels conda-forge     # Add the conda-forge channel
+conda config --set show_channel_urls true   # Show channel URLs
+# Use the Tsinghua mirror for the base channel
+conda config --add default_channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main
+# Use the Tsinghua mirror for the conda-forge channel
+conda config --set 'custom_channels.conda-forge' https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud
 
 # Install mamba
 conda install --yes 'mamba>=0.16'
 
 # Install some commonly used packages
-mamba install --yes ipython jupyter matplotlib numpy obspy pandas scipy sphinx xarray
+mamba install --yes \
+	ipython \
+	jupyter \
+	jupyterlab \
+	matplotlib \
+	numpy \
+	obspy \
+	pandas \
+	scipy \
+	sphinx \
+	xarray
