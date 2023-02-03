@@ -29,7 +29,7 @@ bash ${installer} -b -p ${installdir}
 eval "$(${installdir}/bin/conda shell.${shell} hook)"
 
 # Initialize conda (run this if this is the first time you install miniconda)
-conda init ${shell}
+# conda init ${shell}
 
 # configure conda, changing the ~/.condarc file
 conda config --add channels conda-forge     # Add the conda-forge channel
@@ -42,15 +42,5 @@ conda config --set 'custom_channels.conda-forge' https://mirrors.tuna.tsinghua.e
 # Install mamba
 conda install --yes 'mamba>=0.16'
 
-# Install some commonly used packages
-mamba install --yes \
-	ipython \
-	jupyter \
-	jupyterlab \
-	matplotlib \
-	numpy \
-	obspy \
-	pandas \
-	scipy \
-	sphinx \
-	xarray
+# Install commonly used packages to the base environment
+mamba install --file requirements-base.txt
