@@ -43,4 +43,4 @@ conda config --set 'custom_channels.conda-forge' https://mirrors.tuna.tsinghua.e
 conda install --yes 'mamba>=0.16'
 
 # Install commonly used packages to the base environment
-mamba install --file requirements-base.txt
+mamba install --yes --file requirements-base.txt
