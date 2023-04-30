@@ -34,6 +34,7 @@ conda init ${shell}
 # configure conda, changing the ~/.condarc file
 conda config --add channels conda-forge     # Add the conda-forge channel
 conda config --set show_channel_urls true   # Show channel URLs
+conda config --set channel_priority strict  # strict channel priority
 # Use the Tsinghua mirror for the base channel
 conda config --add default_channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main
 # Use the Tsinghua mirror for the conda-forge channel
