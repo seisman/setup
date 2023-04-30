@@ -29,7 +29,7 @@ bash ${installer} -b -p ${installdir}
 eval "$(${installdir}/bin/conda shell.${shell} hook)"
 
 # Initialize conda (run this if this is the first time you install miniconda)
-# conda init ${shell}
+conda init ${shell}
 
 # configure conda, changing the ~/.condarc file
 conda config --add channels conda-forge     # Add the conda-forge channel
@@ -39,8 +39,9 @@ conda config --add default_channels https://mirrors.tuna.tsinghua.edu.cn/anacond
 # Use the Tsinghua mirror for the conda-forge channel
 conda config --set 'custom_channels.conda-forge' https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud
 
-# Install mamba
-conda install --yes 'mamba>=0.16'
+# Use the faster libmamba solver to speedup conda
+conda install --yes -n base conda-libmamba-solver
+conda config --set solver libmamba
 
 # Install commonly used packages to the base environment
-mamba install --yes --file requirements-base.txt
+conda install --yes --file requirements-base.txt
