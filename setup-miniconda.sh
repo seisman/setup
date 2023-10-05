@@ -35,13 +35,12 @@ conda init ${shell}
 conda config --add channels conda-forge     # Add the conda-forge channel
 conda config --set show_channel_urls true   # Show channel URLs
 conda config --set channel_priority strict  # strict channel priority
-# Use the Tsinghua mirror for the base channel
+# Use the Tsinghua mirror for the main channel
 conda config --add default_channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main
 # Use the Tsinghua mirror for the conda-forge channel
 conda config --set 'custom_channels.conda-forge' https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud
 
 # Use the faster libmamba solver to speedup conda
-conda install --yes -n base conda-libmamba-solver
 conda config --set solver libmamba
 
 # Install commonly used packages to the base environment
